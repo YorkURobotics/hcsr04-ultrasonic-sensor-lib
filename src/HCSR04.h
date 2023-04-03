@@ -5,6 +5,8 @@ class HCSR04
 {
 public:
 	// overloaded constructors & destructor
+	void init(int out, int echo[], int n);
+	HCSR04() = default;
 	HCSR04(int out, int echo);
 	HCSR04(int out, int echo[], int n);
 	~HCSR04();
@@ -13,8 +15,7 @@ public:
 	float dist(int n) const;
 
 private:
-	void init(int out, int echo[], int n);
-	int out;	// ouput pin
+	int out;	// ouput (trigger) pin
 	int *echo;	// echo pin(s)
 	int n;	// number of sensors, i.e., echo pins
 };
